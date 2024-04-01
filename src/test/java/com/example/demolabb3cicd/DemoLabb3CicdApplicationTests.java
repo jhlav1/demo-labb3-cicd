@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -57,6 +58,14 @@ class DemoLabb3CicdApplicationTests {
 		int numberOfElements = webElement.size();
 		Assertions.assertEquals(5, numberOfElements);
 	}
+
+	@Test
+	void checkvisibilityOfElement(){
+		Dimension newSize = new Dimension(600, 900);
+		driver.manage().window().setSize(newSize);
+
+	}
+
 
 
 	@AfterEach
