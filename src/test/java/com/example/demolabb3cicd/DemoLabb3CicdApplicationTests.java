@@ -59,13 +59,6 @@ class DemoLabb3CicdApplicationTests {
 		Assertions.assertEquals(5, numberOfElements);
 	}
 
-	@Test
-	void checkVisibility(){
-		Dimension newSize = new Dimension(600, 900);
-		driver.manage().window().setSize(newSize);
-
-	}
-
 
 
 	@AfterEach
