@@ -12,6 +12,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -47,6 +49,13 @@ class DemoLabb3CicdApplicationTests {
 		WebElement mutedText = driver.findElement(By.xpath("//*[text()='Här startar din IT-karriär!']"));
 		String mutedTextContent= mutedText.getText();
 		Assertions.assertEquals("Här startar din IT-karriär!", mutedTextContent);
+	}
+
+	@Test
+	void getNumberOfButtons(){
+		List<WebElement> webElement = driver.findElements(By.className("btn--dark"));
+		int numberOfElements = webElement.size();
+		Assertions.assertEquals(5, numberOfElements);
 	}
 
 
