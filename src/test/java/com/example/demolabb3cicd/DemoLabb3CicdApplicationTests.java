@@ -24,25 +24,31 @@ class DemoLabb3CicdApplicationTests {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		driver = new ChromeDriver(options);
+		driver.get("https://www.iths.se");
+		driver.manage().window().maximize();
+
 	}
 
 	@Test
 	void checkWebsiteTitle() {
-		/*ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		driver = new ChromeDriver(options); */
-		driver.get("https://www.iths.se");
+
 		assertEquals("IT-Högskolan – Här startar din IT-karriär!", driver.getTitle(), "The title does not match");
 	}
 	@Test
 	void checkHeading(){
 
-		driver.get("https://www.iths.se");
 		WebElement heading = driver.findElement(By.tagName("h1"));
 		String headingText = heading.getText();
 		Assertions.assertEquals("Här startar din IT-karriär!", headingText);
 
 	}
+	@Test
+	void checkText(){
+		WebElement mutedText = driver.findElement(By.xpath("//*[text()='Här startar din IT-karriär!']"));
+		String mutedTextContent= mutedText.getText();
+		Assertions.assertEquals("Här startar din IT-karriär!", mutedTextContent);
+	}
+
 
 	@AfterEach
 	void teardown(){
