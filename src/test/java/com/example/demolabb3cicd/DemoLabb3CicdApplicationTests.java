@@ -60,7 +60,7 @@ class DemoLabb3CicdApplicationTests {
 	}
 
 	@Test
-	void checkvisibilityOfElement(){
+	void checkVisibilityOfElement(){
 		Dimension newSize = new Dimension(600, 900);
 		driver.manage().window().setSize(newSize);
 
