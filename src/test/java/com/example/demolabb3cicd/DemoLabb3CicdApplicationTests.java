@@ -65,6 +65,17 @@ class DemoLabb3CicdApplicationTests {
 		driver.manage().window().setSize(newSize);
 	}
 
+	@Test
+	void checkVisibilityOfElementToggleMenuMobilSize(){
+		Dimension newSize = new Dimension(600, 900);
+		driver.manage().window().setSize(newSize);
+		WebElement menuButton = driver.findElement(By.id("mobile-toggle"));
+		Boolean menuButtonIsDisplayed = menuButton.isDisplayed();
+
+		Assertions.assertTrue(menuButtonIsDisplayed);
+
+	}
+
 
 
 	@AfterEach
