@@ -11,8 +11,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -60,9 +63,14 @@ class DemoLabb3CicdApplicationTests {
 	}
 
 	@Test
-	void checkVisibilityOfElement() {
+	void checkVisibilityOfElementInNewSize() {
 		Dimension newSize = new Dimension(600, 900);
 		driver.manage().window().setSize(newSize);
+		String websiteTitle = driver.getTitle();
+
+		Assertions.assertEquals("IT-Högskolan – Här startar din IT-karriär!",
+				websiteTitle, "The websiteTitle does not match");
+
 	}
 
 	@Test
@@ -75,6 +83,8 @@ class DemoLabb3CicdApplicationTests {
 		Assertions.assertTrue(menuButtonIsDisplayed);
 
 	}
+
+
 
 
 
